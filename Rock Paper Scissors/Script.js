@@ -6,8 +6,8 @@ let choice = ["Rock", "Paper", "Scissors"];
 function getComputerChoice() {
     return choice[Math.floor(Math.random() * choice.length)];
 }
-const selection = prompt("Please enter your choice. Ether Rock, Paper or Scissors")
-const playerSelection = selection;
+// Create a fuction that shows the winer in a single round of game
+/*const playerSelection= prompt("Please enter your choice. Ether Rock, Paper or Scissors");
 const computerSelection = getComputerChoice();
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "Rock" && computerSelection === "Paper") {
@@ -30,29 +30,36 @@ function playRound(playerSelection, computerSelection) {
         return "You draw";
     } else return "";
 }
-console.log(playRound(selection, getComputerChoice()));
-const playerArray = [];
-const computerArray = [];
-function game() {
-    if (playRound(playerSelection, computerSelection) === "You loose, Paper beats Rock") {
-       return playerArray.push(0), computerArray.push(1);
-    } else if (playRound(playerSelection, computerSelection) === "You draw") {
-        return playerArray.push(1), computerArray.push(1);
-    } else if (playRound(playerSelection, computerSelection) === "You win, Rock beats Scissors") {
-        playerArray.push(1), computerArray.push(0);
-    } else if (playRound(playerSelection, computerSelection) === "You win, Paper beats Rock") {
-        return playerArray.push(1), computerArray.push(0);
-    } else if (playRound(playerSelection, computerSelection) === "You loose, Scissors beats Paper") {
-        return playerArray.push(0), computerArray.push(1);
-    } else if (playRound(playerSelection, computerSelection) === "You loose, Rock beats Scissors") {
-        return playerArray.push(0), computerArray.push(1);
-    } else return "";
-}
-let i = 1
-while (i < 5) {
-    game();
-    i++;
-}
-console.log(playerArray);
-console.log(computerArray);
-console.log(game());
+console.log(playRound(playerSelection, getComputerChoice()));*/
+// create a function that calls the playRound 5 Times and declres a winner
+    let playerScore= 0;
+    let computerScore = 0;
+       for (let i = 0; i < 5; i++) {
+        const playerSelection= prompt("Please enter your choice. (Rock, Paper or Scissors");
+        const computerSelection = getComputerChoice();
+        console.log(`You chose ${playerSelection}`);
+        console.log(`Computer chose ${computerSelection}`);
+            if (computerSelection === playerSelection) {
+                console.log("You draw");
+            } else if ((playerSelection === "Rock" && computerSelection === "Scissors") ||
+                    (playerSelection === "Scissors" && computerSelection === "Paper") ||
+                    (playerSelection === "Paper" && computerSelection === "Rock")) {
+                        playerScore++
+                        console.log("You win"); 
+                        console.log(playerScore);
+                        console.log(computerScore);
+                    } else {
+                        computerScore++;
+                        console.log("You loose, Computer wins");
+                        console.log(playerScore);
+                        console.log(computerScore);
+                    }
+       }
+     if (computerScore < playerScore) {
+        console.log("Great play! You won");
+     } else if (computerScore > playerScore) {
+        console.log("Oh no, You lost, Computer won");
+     } else {
+        console.log("You have a Draw");
+            }
+    
